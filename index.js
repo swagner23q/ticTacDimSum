@@ -14,6 +14,7 @@ rl.question('Are you ready? (Y/N)', function(answer) {
   var thirdRow = ("      7|8|9");
 
   if (answer.toUpperCase() === "Y") {
+
     console.log("Here is the board");
     console.log(firstRow);
     console.log(lineRow);
