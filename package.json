@@ -1,0 +1,14 @@
+{
+  "name": "tac_tac_toe",
+  "version": "1.0.0",
+  "description": "an app to play the game tic-tac-toe",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "JavaScript Playground",
+  "license": "ISC",
+  "preferGlobal": true,
+  "bin": {
+    "filesearch": "index.js"
+  }
+}
