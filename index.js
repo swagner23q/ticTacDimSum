@@ -36,8 +36,8 @@ rl.question('Are you ready? (Y/N)', function(answer) {
       console.log(lineRow);
       console.log(thirdRow);
     }
-    else if (parseInt(answer) === 4) {
-      secondRow = ("      X|5|6");
+    else if (parseInt(answer) === 6) {
+      secondRow = ("      4|5|X");
       console.log(firstRow);
       console.log(lineRow);
       console.log(secondRow);
