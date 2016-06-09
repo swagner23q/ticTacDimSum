@@ -7,22 +7,25 @@ const rl = readline.createInterface({
 
 //global variables
 var board = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-var lines = "-----------";
+var lines = "   -----------";
+var space = "                       ";
 
 //game functions
 var startGame = function() {
-  rl.question("Would you like to start? (Y/N)", function(answer) {
+  rl.question("ヽ(｀０´）ノ <<Let's start! (Y/N)", function(answer) {
     if (answer.toUpperCase() === "Y") {
-      console.log("Here is the board");
-      console.log(board.slice(0, 3));
+      console.log("☆☆Battle Board☆☆");
+      console.log(space);
+      console.log("  | " + board[0] + " | " + board[1] + " | " + board[2] + " |");
       console.log(lines);
-      console.log(board.slice(3, 6));
+      console.log("  | " + board[3] + " | " + board[4] + " | " + board[5] + " |");
       console.log(lines);
-      console.log(board.slice(6, 9));
+      console.log("  | " + board[6] + " | " + board[7] + " | " + board[8] + " |");
+      console.log(space);
       playerTurnX();
 
     } else {
-      console.log('Fine...Bye Felicia (>_>)');
+      console.log('Fine...Bye Felicia (￣-￣)');
       rl.close();
     }
   });
@@ -30,29 +33,43 @@ var startGame = function() {
 
 var playerTurnX = function() {
   rl.question("Player X's move, choose a position (0-8)", function(answer) {
+    if (parseInt(answer) !== 0 && parseInt(answer) !== 1 && parseInt(answer) !== 2 && parseInt(answer) !== 3 && parseInt(answer) !== 4 && parseInt(answer) !== 5 && parseInt(answer) !== 6 && parseInt(answer) !== 7 && parseInt(answer) !== 8) {
+      console.log("(*￣o￣*)> WARNING--Not a valid position, try again");
+      playerTurnX();
+    } else {
     replaceNumberX(parseInt(answer));
-    console.log(board.slice(0, 3));
+    console.log(space);
+    console.log("  | " + board[0] + " | " + board[1] + " | " + board[2] + " |");
     console.log(lines);
-    console.log(board.slice(3, 6));
+    console.log("  | " + board[3] + " | " + board[4] + " | " + board[5] + " |");
     console.log(lines);
-    console.log(board.slice(6, 9));
+    console.log("  | " + board[6] + " | " + board[7] + " | " + board[8] + " |");
+    console.log(space);
     checkWinX(board);
     checkWinO(board);
     playerTurnO();
+    }
   });
 }
 var playerTurnO = function() {
   rl.question("Player O's move, choose a position (0-8)", function(answer) {
+    if (parseInt(answer) !== 0 && parseInt(answer) !== 1 && parseInt(answer) !== 2 && parseInt(answer) !== 3 && parseInt(answer) !== 4 && parseInt(answer) !== 5 && parseInt(answer) !== 6 && parseInt(answer) !== 7 && parseInt(answer) !== 8) {
+      console.log("(*￣o￣*)> WARNING--Not a valid position, try again");
+      playerTurnO();
+    } else {
     replaceNumberO(parseInt(answer));
-    console.log(board.slice(0, 3));
+    console.log(space);
+    console.log("  | " + board[0] + " | " + board[1] + " | " + board[2] + " |");
     console.log(lines);
-    console.log(board.slice(3, 6));
+    console.log("  | " + board[3] + " | " + board[4] + " | " + board[5] + " |");
     console.log(lines);
-    console.log(board.slice(6, 9));
+    console.log("  | " + board[6] + " | " + board[7] + " | " + board[8] + " |");
+    console.log(space);
     checkWinX(board);
     checkWinO(board);
     playerTurnX();
 
+    };
   });
 }
 
@@ -70,7 +87,7 @@ var replaceNumberO = function(answer) {
 var checkWinX = function(board) {
   var stringBoardX = board.toString();
   if (stringBoardX === "X,X,X,O,4,O,6,7,8" ||  stringBoardX === "O,O,2,X,X,X,6,7,8") {
-    console.log("~~~~Player X has won!~~~~");
+    console.log("ヽ（￣∇￣）ノ ﾗﾝﾗﾝ♪~*~*~Player X has won!~*~*~");
     endGame();
   }
 }
@@ -78,19 +95,32 @@ var checkWinX = function(board) {
 var checkWinO = function(board) {
   var stringBoardO = board.toString();
   if (stringBoardO === "O,O,O,X,4,X,X,7,8" ||  stringBoardO === "X,X,2,O,O,O,6,7,8") {
-    console.log("~~~~Player O has won!~~~~");
+    console.log("ヽ（￣∇￣）ノ ﾗﾝﾗﾝ♪ ~*~*~Player O has won!~*~*~");
     endGame();
   }
 }
+
 var endGame = function() {
-  rl.question("Game over, would you like to restart?", function(answer) {
+  rl.question("Game over, play again? (Y/N)", function(answer) {
     if (answer.toUpperCase() === "Y") {
+      board = [0, 1, 2, 3, 4, 5, 6, 7, 8];
       startGame();
     } else {
+      console.log("K, bye! (o￣∇￣)o")
       rl.close();
     }
   });
 }
+// var checkDoubleX = function(answer) {
+//   if (board[answer] = "O" {
+//     console.log("(*￣o￣*)> WARNING--Spot taken, try again");
+//   }
+// }
+// var checkInputO = function(answer) {
+//   if (parseInt(answer) !== 0 && parseInt(answer) !== 1 && parseInt(answer) !== 2 && parseInt(answer) !== 3 && parseInt(answer) !== 4 && parseInt(answer) !== 5 && parseInt(answer) !== 6 && parseInt(answer) !== 7 && parseInt(answer) !== 8) {
+//     console.log("(*￣o￣*)> WARNING--Not a valid position or spot taken, try again");
+//   }
+// }
 
 //initiate game
 
