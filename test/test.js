@@ -11,4 +11,14 @@ describe('index', function() {
       expect(index.board).to.deep.eql([0, 1, 2, 3, 4, 5, 6, 7, 8]);
     });
    });
+  describe('replaceNumberX', function () {
+    it('should replace answer with an X in board array', function () {
+      expect(index.replaceNumberX(4)).to.equal("X");
+     });
+    });
+  describe('replaceNumberO', function () {
+    it('should replace answer with an O in board array', function () {
+      expect(index.replaceNumberO(1)).to.equal("O");
+     });
+    });
 });
