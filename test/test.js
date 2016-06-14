@@ -21,4 +21,9 @@ describe('index', function() {
       expect(index.replaceNumberO(1)).to.equal("O");
      });
     });
+    describe('playerXName', function () {
+      it('should store player X name within the variable', function () {
+        expect(index.playerXName("James")).to.equal("James");
+       });
+      });
 });

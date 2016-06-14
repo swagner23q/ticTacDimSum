@@ -18,7 +18,23 @@ var playerXScore = 0;
 var playerOScore = 0;
 var ties = 0;
 
-//game functions
+//game functions in order
+function playerXName(answer) {
+  rl.question("Enter Player X's Name: ", function(answer) {
+     playerX = answer;
+     console.log("Player X is " + playerX);
+     playerOName();
+  });
+}
+
+function playerOName(answer) {
+  rl.question("Enter Player O's Name: ", function(answer) {
+     playerO = answer;
+     console.log("Player O is " + playerO);
+     startGame();
+  });
+}
+
 function startGame() {
   rl.question("ヽ(｀０´）ノ <<Let's start! (Y/N)", function(answer) {
     if (answer.toUpperCase() === "Y") {
@@ -47,25 +63,6 @@ function startGame() {
     } else {
       console.log("We'll just assume you don't want to...so, Bye Felicia (￣-￣)");
       rl.close();
-    }
-  });
-}
-function playerXName(answer) {
-  rl.question("Enter Player X's Name: ", function(answer) {
-    if (answer === answer) {
-     playerX = answer;
-     console.log("Player X is " + playerX);
-     playerOName();
-    }
-  });
-}
-
-function playerOName(answer) {
-  rl.question("Enter Player O's Name: ", function(answer) {
-    if (answer === answer) {
-     playerO = answer;
-     console.log("Player O is " + playerO);
-     startGame();
     }
   });
 }
@@ -133,10 +130,11 @@ function replaceNumberO(answer) {
     return board[answer] = "O";
   }
 }
+
 function checkWin(board) {
   if (board[0] === "X" && board[4] === "X" && board[8] === "X" || board[0] === "X" && board[3] === "X" && board[6] === "X" || board[0] === "X" && board[1] === "X" && board[2] === "X" || board[2] === "X" && board[4] === "X" && board[6] === "X" || board[2] === "X" && board[5] === "X" && board[8] === "X" || board[1] === "X" && board[4] === "X" && board[7] === "X" || board[3] === "X" && board[4] === "X" && board[5] === "X" || board[6] === "X" && board[7] === "X" && board[8] === "X") {
     player.play('sounds/tada.mp3', function(err){});
-    console.log("ヽ（￣∇￣）ノ  ~*~*~" + playerO + " has won!~*~*~");
+    console.log("ヽ（￣∇￣）ノ  ~*~*~" + playerX + " has won!~*~*~");
     console.log("               ─────────▄──────────────▄");
     console.log("               ────────▌▒█───────────▄▀▒▌")
     console.log("               ────────▌▒▒▀▄───────▄▀▒▒▒▐");
@@ -182,7 +180,7 @@ function checkWin(board) {
     console.log("               ───▐▀▒▀▄▄▄▄▄▄▀▀▀▒▒▒▒▒▄▄▀");
     console.log("               ──▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▀▀");
     console.log("                ───wow such tic tac toe───");
-    playerXScore = playerXScore + 1;
+    playerOScore = playerOScore + 1;
     endGame();
   } else if (turns >= 8) {
     player.play('/System/Library/Sounds/Basso.aiff', function(err){});
@@ -219,3 +217,4 @@ playerXName();
 module.exports.board = board;
 module.exports.replaceNumberX = replaceNumberX;
 module.exports.replaceNumberO = replaceNumberO;
+module.exports.playerXName = playerXName;
