@@ -1,4 +1,6 @@
 const readline = require('readline');
+var player = require('play-sound')(opts = {});
+
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
@@ -11,10 +13,14 @@ var space = "                       ";
 var playerX;
 var playerO;
 
+//Sounds
+// player.play('sounds/tada.mp3', function(err){});
+
 //game functions
 function startGame() {
   rl.question("ヽ(｀０´）ノ <<Let's start! (Y/N)", function(answer) {
     if (answer.toUpperCase() === "Y") {
+      player.play('sounds/pacman.mp3', function(err){});
       console.log("☆☆Battle Board☆☆");
       console.log(space);
       console.log("  | " + board[0] + " | " + board[1] + " | " + board[2] + " |");
@@ -25,6 +31,7 @@ function startGame() {
       console.log(space);
       playerTurnX();
     } else if (answer.toUpperCase() ==="N") {
+      player.play('sounds/sad.mp3', function(err){});
       console.log("Fine...Bye Felicia (￣-￣)")
       rl.close();
     } else {
@@ -54,7 +61,7 @@ function playerOName(answer) {
 }
 
 function playerTurnX() {
-  rl.question(playerX + "'s move, choose a position (0-8)", function(answer) {
+  rl.question(playerX + "'s move, choose a position (0-8): ", function(answer) {
     if (parseInt(answer) !== 0 && parseInt(answer) !== 1 && parseInt(answer) !== 2 && parseInt(answer) !== 3 && parseInt(answer) !== 4 && parseInt(answer) !== 5 && parseInt(answer) !== 6 && parseInt(answer) !== 7 && parseInt(answer) !== 8) {
       console.log("(*￣o￣*)> WARNING--Not a valid position, try again");
       playerTurnX();
@@ -78,7 +85,7 @@ function playerTurnX() {
   });
 }
 function playerTurnO() {
-  rl.question(playerO + "'s move, choose a position (0-8)", function(answer) {
+  rl.question(playerO + "'s move, choose a position (0-8): ", function(answer) {
     if (parseInt(answer) !== 0 && parseInt(answer) !== 1 && parseInt(answer) !== 2 && parseInt(answer) !== 3 && parseInt(answer) !== 4 && parseInt(answer) !== 5 && parseInt(answer) !== 6 && parseInt(answer) !== 7 && parseInt(answer) !== 8) {
       console.log("(*￣o￣*)> WARNING--Not a valid position, try again");
       playerTurnO();
@@ -116,6 +123,7 @@ function replaceNumberO(answer) {
 function checkWinX(board) {
   var stringBoardX = board.toString();
   if (stringBoardX === "X,X,X,O,4,O,6,7,8" ||  stringBoardX === "O,O,2,X,X,X,6,7,8" || stringBoardX === "X,X,X,X,O,5,0,0,8" || stringBoardX === "X,X,O,4,X,5,O,O,X" || stringBoardX === "X,X,O,4,X,5,0,0,X" || stringBoardX === "0,1,O,O,4,5,X,X,X" || stringBoardX === "0,O,2,X,X,X,6,O,8" || stringBoardX === "0,O,X,O,X,5,X,7,8" || stringBoardX === "0,1,X,O,X,5,X,O,8" || stringBoardX === "X,O,2,X,O,5,X,7,8" || stringBoardX === "O,1,X,3,O,X,6,7,X" || stringBoardX === "0,O,X,O,4,X,6,7,X" || stringBoardX === "0,1,X,3,O,X,6,O,X" || stringBoardX === "0,1,X,O,4,X,6,O,X" || stringBoardX === "0,1,X,O,4,X,6,O,X" || stringBoardX === "X,1,2,O,X,5,6,O,X" || stringBoardX === "X,O,O,3,X,5,6,7,X" || stringBoardX === "X,1,O,3,X,5,0,7,X" || stringBoardX === "X,1,O,3,X,O,6,7,X" || stringBoardX === "X,1,2,3,X,5,O,O,X" || stringBoardX === "X,0,2,3,X,5,6,O,X" || stringBoardX === "X,1,2,O,X,5,6,O,X" || stringBoardX === "X,1,O,O,X,5,6,O,X" || stringBoardX === "X,O,2,3,X,5,O,7,X" || stringBoardX === "X,1,O,3,X,5,O,7,X" || stringBoardX === "O,1,X,X,X,O,X,O,8" || stringBoardX === "X,X,O,3,X,5,O,O,X") {
+    player.play('sounds/tada.mp3', function(err){});
     console.log("ヽ（￣∇￣）ノ ﾗﾝﾗﾝ♪~*~*~" + playerX + " has won!~*~*~");
     console.log("               ─────────▄──────────────▄");
     console.log("               ────────▌▒█───────────▄▀▒▌")
@@ -144,6 +152,7 @@ function checkWinX(board) {
 function checkWinO(board) {
   var stringBoardO = board.toString();
   if (stringBoardO === "O,O,O,X,4,X,X,7,8" ||  stringBoardO === "X,X,2,O,O,O,6,7,8" || stringBoardO === "O,O,O,X,X,5,6,X,8" || stringBoardO === "O,O,X,X,O,5,X,X,O" || stringBoardO === "X,X,O,O,O,X,O,X,8") {
+    player.play('sounds/tada.mp3', function(err){});
     console.log("ヽ（￣∇￣）ノ ﾗﾝﾗﾝ♪ ~*~*~" + playerO + " has won!~*~*~");
     console.log("               ─────────▄──────────────▄");
     console.log("               ────────▌▒█───────────▄▀▒▌")
@@ -182,6 +191,7 @@ function endGame() {
       board = [0, 1, 2, 3, 4, 5, 6, 7, 8];
       startGame();
     } else if (answer.toUpperCase() ==="N") {
+      player.play('sounds/sad.mp3', function(err){});
       console.log("K, bye! (o￣∇￣)o")
       rl.close();
     } else {
