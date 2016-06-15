@@ -21,17 +21,17 @@ var ties = 0;
 //game functions in order
 function playerXName(answer) {
   rl.question("Enter Player X's Name: ", function(answer) {
-     playerX = answer;
-     console.log("Player X is " + playerX);
-     playerOName();
+    playerX = answer;
+    console.log("Player X is " + playerX);
+    playerOName();
   });
 }
 
 function playerOName(answer) {
   rl.question("Enter Player O's Name: ", function(answer) {
-     playerO = answer;
-     console.log("Player O is " + playerO);
-     startGame();
+    playerO = answer;
+    console.log("Player O is " + playerO);
+    startGame();
   });
 }
 
@@ -55,14 +55,13 @@ function startGame() {
       } else {
         playerTurnO();
       }
-
     } else if (answer.toUpperCase() ==="N") {
-      player.play('sounds/sad.mp3', function(err){});
-      console.log("Fine...Bye Felicia (￣-￣)")
-      rl.close();
+        player.play('sounds/sad.mp3', function(err){});
+        console.log("Fine...Bye Felicia (￣-￣)")
+        rl.close();
     } else {
-      console.log("We'll just assume you don't want to...so, Bye Felicia (￣-￣)");
-      rl.close();
+        console.log("We'll just assume you don't want to...so, Bye Felicia (￣-￣)");
+        rl.close();
     }
   });
 }
@@ -77,7 +76,7 @@ function playerTurnX() {
         player.play('sounds/error.mp3', function(err){});
         console.log("(*￣o￣*)> WARNING--Spot taken, try again");
         playerTurnX();
-      } else {
+    } else {
         replaceNumberX(parseInt(answer));
         player.play('sounds/woosh.mp3', function(err){});
         console.log(space);
@@ -90,7 +89,7 @@ function playerTurnX() {
         checkWin(board);
         turns = turns + 1;
         playerTurnO();
-    }
+      }
   });
 }
 function playerTurnO() {
