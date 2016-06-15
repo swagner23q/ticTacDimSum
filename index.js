@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const readline = require('readline');
 var player = require('play-sound')(opts = {});
 
