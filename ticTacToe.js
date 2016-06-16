@@ -36,16 +36,32 @@ gameState.prototype.setMove = function(row, col, value) {
   if (this.isValidMove(row, col)) {
     this.board[row][col] = value;
     this.filledCells++;
-    this.userTie();
+    this.chkTie();
   }
 }
 
-gameState.prototype.userTie = function() {
+gameState.prototype.chkTie = function() {
  if (this.filledCells === this.totalCells) {
    return true;
  }
 }
 
+gameState.prototype.chkWin = function(row, col, value) {
+  let h = v = d1 = d2 = 0;
+  for (let i = 0; i < this.boardSize; i++) {
+    if (this.board[i][col] === value) {
+      h++;
+
+    } else if (this.board[row][i] === value) {
+      v++;
+
+    } else if ((this.board[row = col]) === value) {
+      d1++;
+    }
+  } console.log("h = " + h);
+    console.log("v = " + v);
+    console.log("d1 = " + d1);
+}
 // gameState.prototype.gameReset = function() {
 //   if (this.userTie) {
 //     var game = new gameState;

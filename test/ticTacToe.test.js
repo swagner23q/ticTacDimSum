@@ -65,7 +65,7 @@ describe('ticTacToe', function() {
       expect(game.filledCells).to.equal(1);
     });
   });
-  describe('userTie', function() {
+  describe('chkTie', function() {
     beforeEach(function() {
       game = new gameState();
       game.setupBoard(3);
@@ -83,4 +83,9 @@ describe('ticTacToe', function() {
       expect(game.filledCells).to.equal(game.totalCells);
     });
   });
+  describe('chkWin', function() {
+
+
+
+  })
 });
