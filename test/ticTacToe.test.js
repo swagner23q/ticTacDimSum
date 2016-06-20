@@ -83,9 +83,4 @@ describe('ticTacToe', function() {
       expect(game.filledCells).to.equal(game.totalCells);
     });
   });
-  describe('chkWin', function() {
-
-
-
-  })
 });

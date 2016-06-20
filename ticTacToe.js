@@ -47,20 +47,25 @@ gameState.prototype.chkTie = function() {
 }
 
 gameState.prototype.chkWin = function(row, col, value) {
-  let h = v = d1 = d2 = 0;
+  let h = v = dl = dr = 0;
   for (let i = 0; i < this.boardSize; i++) {
     if (this.board[i][col] === value) {
-      h++;
-
-    } else if (this.board[row][i] === value) {
       v++;
 
-    } else if ((this.board[row = col]) === value) {
-      d1++;
+    } if (this.board[row][i] === value) {
+      h++;
+
+    } if (this.board[i][j] === value) {
+        dl++;
+
+    } if (this.board[i][i] === value) {
+      dr++;
     }
   } console.log("h = " + h);
     console.log("v = " + v);
-    console.log("d1 = " + d1);
+    console.log("dl = " + dl);
+    console.log("dr = " + dr);
+
 }
 // gameState.prototype.gameReset = function() {
 //   if (this.userTie) {
