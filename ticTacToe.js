@@ -49,23 +49,22 @@ gameState.prototype.chkTie = function() {
 gameState.prototype.chkWin = function(row, col, value) {
   let h = v = dl = dr = 0;
   for (let i = 0; i < this.boardSize; i++) {
-    if (this.board[i][col] === value) {
-      v++;
 
-    } if (this.board[row][i] === value) {
-      h++;
+    //check vertical positions in arrays
+    if (this.board[i][col] === value) v++;
 
-    } if (this.board[i][j] === value) {
-        dl++;
+    //check horizonatal positions in arrays
+    if (this.board[row][i] === value) h++;
 
-    } if (this.board[i][i] === value) {
-      dr++;
-    }
+    //check leftwards diagonal position in arrays
+    if (this.board[i][(this.boardSize - 1) - i] === value) dl++;
+
+    //check rightwards diagonal position in arrays
+    if (this.board[i][i] === value) dr++;
   } console.log("h = " + h);
     console.log("v = " + v);
     console.log("dl = " + dl);
     console.log("dr = " + dr);
-
 }
 // gameState.prototype.gameReset = function() {
 //   if (this.userTie) {

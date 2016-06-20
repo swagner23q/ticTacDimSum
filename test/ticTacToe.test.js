@@ -83,4 +83,17 @@ describe('ticTacToe', function() {
       expect(game.filledCells).to.equal(game.totalCells);
     });
   });
+  // describe('chkWin', function() {
+  //   beforeEach(function() {
+  //     game = new gameState();
+  //     game.setupBoard(3);
+  //     game.setMove(0,0,'X');
+  //     game.setMove(0,1,'X');
+  //     game.setMove(0,2,'X');
+  //     game.chkWin(0,0,'X');
+  //   });
+  //   it('will count number of values within horizontal positions of array', function() {
+  //     expect(game.filledCells).to.equal(game.totalCells);
+  //   });
+  // });
 });
