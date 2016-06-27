@@ -1,6 +1,10 @@
-#!/usr/bin/env node
- function gameState() {
- this.boardSize = this.filledCells = this.totalCells = 0;
+
+'use strict';
+
+ var gameState = function gameState() {
+ this.boardSize = 0;
+ this.filledCells = 0;
+ this.totalCells = 0;
  this.board = [];
 }
 
@@ -61,10 +65,7 @@ gameState.prototype.chkWin = function(row, col, value) {
 
     //check rightwards diagonal position in arrays
     if (this.board[i][i] === value) dr++;
-  } console.log("h = " + h);
-    console.log("v = " + v);
-    console.log("dl = " + dl);
-    console.log("dr = " + dr);
+  }
 }
 // gameState.prototype.gameReset = function() {
 //   if (this.userTie) {
