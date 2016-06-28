@@ -1,5 +1,5 @@
 .idea
-game/
+www/static/js/game/
 node_modules
 .DS_Store
 static/css/*.css*
