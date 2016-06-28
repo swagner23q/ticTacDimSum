@@ -37,12 +37,14 @@ body
   background-position center
   background-repeat no-repeat
   background-size cover
-  width 100%
   height 100vh
+  width 100%
 
 .index
 
   nav
+    position absolute
+    z-index 4
     display inline-block
     background-color #E8D0C5
     width 100%
@@ -62,26 +64,52 @@ body
 
   .cloud2
     position absolute
+    z-index 3
     right 4%
     top 50%
   .cloud1
     position absolute
-    z-index 1
+    z-index 3
     top 50%
 
   #gameBoard
-    border 1px solid black
-    td
-      border 1px solid black
+    z-index 1
+    position relative
+    top 15%
+    background-image url('/gfx/vectors/Board.png')
+    background-position center
+    background-repeat no-repeat
+    background-size contain
+    padding 10%
+    padding-top 7%
+    padding-bottom 7%
+    table
+      margin-left auto
+      margin-right auto
+      // border 1px solid black
+      border-radius 5%!important
+      width 50%
+      tbody
+        border-radius 5%
+        tr
+          border-radius 5%
+          td
+            // border 1px solid black
+            padding 6%
+            text-align center
 
-  #hero
-    h1
-      border-color white
-      color white
+  .board
+    z-index 0
+    position relative
+    top -40%
+    height 75%!important
+    display block
+    margin auto
 
-  .feature
-    &.gfx-left
-      @extend .white
-
-    &.gfx-right
-      @extend .blue.lighten-5
+  #boardSize
+    display none
+    background-color white
+    height 400px
+  &:hover
+    display block
+    cursor pointer

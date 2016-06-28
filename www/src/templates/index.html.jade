@@ -9,11 +9,19 @@ block content
       li ticTac  
             img(src='/gfx/vectors/chopsticks.png') 
             |  DimSum
-      li Choose Board size
+      li Choose Board Size
+        ul#boardSize
+          li
+            a(href='#', data-size='3') 3x3
+          li
+            a(href='#', data-size='4') 4x4
+          li
+            a(href='#', data-size='5') 5x5
   
   #gameBoard
+  //- img.board(src='/gfx/vectors/Board.png')
   
-  img.floating(src='/gfx/vectors/floaterEtart.png')
+  img.floating.cloud1(src='/gfx/vectors/floaterEtart.png')
   img.floating.cloud2(src='/gfx/vectors/floaterHum.png')
   
   //- header#hero

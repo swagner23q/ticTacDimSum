@@ -44,16 +44,8 @@ webPresenter.prototype.changeCurrentPlayer = function () {
   }
 };
 
-var state = new gameState();
-var presenter = new webPresenter(state);
-
-
-//jQuery here
-$(function() {
-  presenter.setupBoard(3);
-
-  $('#gameBoard').html(presenter.printBoard())
-
+webPresenter.prototype.runGame = function () {
+  $('#gameBoard').html(presenter.printBoard());
   $('#gameBoard td').each(function() {
     $(this).click(function() {
       var col = $(this).index();
@@ -61,12 +53,29 @@ $(function() {
 
       presenter.setMove(row, col, presenter.getCurrentPlayer());
       $(this).html(presenter.getCurrentPlayer());
-      console.log(presenter.getBoard());
 
+      console.log(presenter.getBoard());
     });
   });
+};
+
+var state = new gameState();
+var presenter = new webPresenter(state);
 
 
+//jQuery here
+$(function() {
+  presenter.setupBoard(3);
+  presenter.runGame();
+
+  $('#boardSize a').each(function() {
+    $(this).click(function(e) {
+      let boardSize = $(this).data('size');
+      e.preventDefault();
+      presenter.setupBoard(boardSize);
+      presenter.runGame();
+    });
+  });
 
 });
 
