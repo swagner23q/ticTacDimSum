@@ -6,25 +6,36 @@ block content
   //- embed(src='/sfx/chineseRestaurant.mp3', loop='true', autostart='true')
   nav
     ul
-      li ticTac  
+      img.hamburger(src='/gfx/vectors/hamburger.png')
+      li.first-child ticTac  
             img(src='/gfx/vectors/chopsticks.png') 
             |  DimSum
-      li Choose Board Size
+      li.boardDrop Choose Board Size
         ul#boardSize
-          li
-            a(href='#', data-size='3') 3x3
-          li
-            a(href='#', data-size='4') 4x4
-          li
-            a(href='#', data-size='5') 5x5
+          span.boardLinks
+            li
+                  p
+                    a(href='#', data-size='3') 3x3
+                  p
+                    a(href='#', data-size='4') 4x4
+                  p
+                    a(href='#', data-size='5') 5x5
+      li Choose Character
   
   #gameBoard
-  //- img.board(src='/gfx/vectors/Board.png')
   
   img.floating.cloud1(src='/gfx/vectors/floaterEtart.png')
   img.floating.cloud2(src='/gfx/vectors/floaterHum.png')
   
+  img.dumplings(src='/gfx/vectors/BasketODumplings.png')
+  
   .scroll
+    .winsLosses
+      p Player 1 Wins:<br />
+       |Player 2 Wins:<br />
+       |Draws: <br />
+      span.restart
+       | restart
   
   //- header#hero
   //-   .wrapper

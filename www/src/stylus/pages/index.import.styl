@@ -48,79 +48,212 @@ body
     display inline-block
     background-color #E8D0C5
     width 100%
-    box-shadow: 2px 2px 4px black
+    box-shadow: 1px 1px 3px black
     font-family "madeInChina"
     color #873939
-    font-size: 1.50em
+    font-size: 1.5em
+
     ul
       display flex
+      flex-direction row
       justify-content space-around
       padding 0
       margin 15px
+      margin 0
+      padding-top 10px
+      @media (max-width: 667px)
+        padding 2%
+
     li
       list-style none
       img
         width 9%
+
+      &:last-child
+        @media (max-width: 667px)
+          display none
+    .first-child
+      @media (max-width: 667px)
+        margin auto
 
   .cloud2
     position absolute
     z-index 3
     right 4%
     top 50%
+    height 15%
+
   .cloud1
     position absolute
     z-index 3
     top 50%
+    height 15%
 
   #gameBoard
     z-index 1
     position relative
-    top 15%
+    top 8%
     background-image url('/gfx/vectors/Board.png')
     background-position center
     background-repeat no-repeat
-    background-size contain
+    background-size 100% 100%
     padding 10%
-    padding-top 7%
-    padding-bottom 7%
-    table
+    padding-top 5.5%
+    width 80vw
+    height 57vh
+    margin-left auto
+    margin-right auto
+
+    //mediaQ for phone
+    @media (max-width: 667px)
+      top 7%
+      padding-top 0
+      padding-bottom 0
+      background-size 100% 100%
       margin-left auto
       margin-right auto
-      // border 1px solid black
-      border-radius 5%!important
-      width 50%
+      height 52vh
+      width 100vw
+
+      //mediaQ for tablet portrait
+    @media (max-width: 768px) and (orientation: portrait)
+      background-size 100% 100%
+      top 5%
+      height 65vh
+      width 100vw
+      padding 0
+
+    @media (max-width: 1024px) and (orientation: landscape)
+      background-size 100% 100%
+      top 5%
+      height 65vh
+      width 100vw
+      padding 0
+
+    table
+      background-image url('/gfx/vectors/whiteBoard.png')
+      background-position center
+      background-repeat no-repeat
+      background-size 100% 100%
+      position relative
+      margin-left auto
+      margin-right auto
+      width 80%
+      height 40vh
+
+      //mediaQ for phone
+      @media (max-width: 667px)
+        top 12%
+        height 40vh
+        width 100%
+
+      //mediaQ for tablet
+      @media (max-width: 768px) and (orientation: portrait)
+        top 15%
+        width 65%
+        height 45vh
+      @media (max-width: 1024px) and (orientation: landscape)
+        top 15%
+        width 65%
+        height 45vh
       tbody
-        border-radius 5%
         tr
-          border-radius 5%
           td
-            // border 1px solid black
             padding 6%
             text-align center
-
-  .board
-    z-index 0
-    position relative
-    top -40%
-    height 75%!important
-    display block
-    margin auto
-
+            // border 3px solid black
+            &:hover
+              cursor pointer
+            @media (max-width: 667px)
+              padding 4%
   #boardSize
-    display none
     &:hover
-      position relative
-      display inline
       cursor pointer
 
+  .boardLinks
+    display none
+    width 260px
+    position absolute
+    left 40%
+    background-color #E8D0C5
+    padding-left 2%
+    border-radius 0 0 10px 10px
+    a
+      font-family "madeInChina"
+      color #873939
+      text-decoration none
+      font-size 1.5em
+      &:hover
+        background-color #C0A89D
+        width 300px
+
+  .boardDrop
+    &:hover
+      cursor pointer
+    //mediaQ for phone
+    @media (max-width: 667px)
+      display none
+
+  .boardDrop:hover .boardLinks
+    display block
+
+  .dumplings
+    position absolute
+    height 25%
+    bottom 0
+    left 15%
+    @media (max-width: 667px)
+      display none
+    @media (max-width: 768px) and (orientation: portrait)
+      height 20%
+      left 0
   .scroll
-    color #873939
     background-image url('/gfx/vectors/WinnerScroll.png')
     background-position center
     background-repeat no-repeat
-    background-size contain
+    background-size 100% 100%
     height 30%
+    width 400px
     position relative
     display block
     margin auto
-    top 15%
+    top 10%
+    //mediaQ for phone
+    @media (max-width: 667px)
+      width 100%
+      height 35%
+      top 12%
+      z-index 4
+      //mediaQ for tablet
+    @media (max-width: 768px) and (orientation: portrait)
+      height 30%
+      top 5%
+    @media (max-width: 1024px) and (orientation: landscape)
+      height 30%
+      top 5%
+
+    .winsLosses
+      text-align center
+      padding-top 7%
+      p
+        font-family "madeInChina" !important
+        color #533317
+        font-size 1.3em
+  .hamburger
+    height 10%
+    display none
+    //mediaQ for phone
+    @media (max-width: 667px)
+      display block
+      position relative
+      left 5px
+  .restart
+    background: #E8D0C5;
+    padding 2%
+    border: 2px solid #873939;
+    border-radius: 8px;
+    font-family: "MadeinChina";
+    font-size: 25.26px;
+    color: #873939;
+    &:hover
+      cursor pointer
