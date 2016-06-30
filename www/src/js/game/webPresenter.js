@@ -2,30 +2,45 @@
 
 var webPresenter = function(gameState) {
   this.gameState = gameState;
-  this.currentPlayer = 0;
+  this.currentPlayer = "X";
+  this.boardSize = 3;
+  this.playerXWins = 0;
+  this.playerOWins = 0;
+  this.draws = 0;
 };
 
 webPresenter.prototype.setupBoard = function (boardSize) {
   this.gameState.setupBoard(boardSize);
+  $('#gameBoard').removeClass();
+  $('#gameBoard').addClass('size-' + boardSize);
+  this.boardSize = boardSize;
+  this.gameState.filledCells = 0;
 }
 
-webPresenter.prototype.printBoard = function () {
-  var boardHtml = "<table>";
-  for (var row = 0; row < this.gameState.boardSize; row++) {
-    boardHtml += "<tr>";
-    for (var col = 0; col < this.gameState.boardSize; col++) {
-      boardHtml += "<td>" + this.gameState.board[row][col] + "</td>";
+webPresenter.prototype.setMove = function (row, col, value, element) {
+  if (this.gameState.isValidMove(row, col)) {
+    this.gameState.setMove(row, col, value);
+
+    if (this.gameState.chkWin(row, col, value)) {
+      if (value === "X") {
+        this.playerXWins++;
+        $('#playerXWins').html(" " + this.playerXWins);
+      } else {
+        this.playerOWins++;
+        $('#playerOWins').html(" " + this.playerOWins);
+      }
+      alert(value + " has won!");
     }
-    boardHtml += "</tr>";
+    if (this.gameState.chkTie()) {
+      this.draws++;
+      alert("its a draw");
+      $('#draws').html(" " + this.draws);
+    }
+    element.html(presenter.getCurrentPlayer());
+    this.changeCurrentPlayer();
+  } else {
+      alert("Not a valid move");
   }
-  boardHtml += "</table>";
-
-  return boardHtml;
-};
-
-webPresenter.prototype.setMove = function (row, col, value) {
-  this.gameState.setMove(row, col, value);
-  this.changeCurrentPlayer();
 };
 
 webPresenter.prototype.getBoard = function () {
@@ -37,11 +52,26 @@ webPresenter.prototype.getCurrentPlayer = function () {
 };
 
 webPresenter.prototype.changeCurrentPlayer = function () {
-  if (this.currentPlayer === 0) {
-    this.currentPlayer = 1;
+  if (this.currentPlayer === "X") {
+    this.currentPlayer = "O";
   } else {
-    this.currentPlayer = 0;
+    this.currentPlayer = "X";
   }
+};
+
+webPresenter.prototype.printBoard = function () {
+
+  var boardHtml = "<table>";
+  for (var row = 0; row < this.gameState.boardSize; row++) {
+    boardHtml += "<tr>";
+    for (var col = 0; col < this.gameState.boardSize; col++) {
+      boardHtml += "<td>" + "</td>";
+    }
+    boardHtml += "</tr>";
+  }
+  boardHtml += "</table>";
+
+  return boardHtml;
 };
 
 webPresenter.prototype.runGame = function () {
@@ -51,10 +81,7 @@ webPresenter.prototype.runGame = function () {
       var col = $(this).index();
       var row = $(this).parent().index();
 
-      presenter.setMove(row, col, presenter.getCurrentPlayer());
-      $(this).html(presenter.getCurrentPlayer());
-
-      console.log(presenter.getBoard());
+      presenter.setMove(row, col, presenter.getCurrentPlayer(), $(this));
     });
   });
 };
@@ -65,7 +92,7 @@ var presenter = new webPresenter(state);
 
 //jQuery here
 $(function() {
-  presenter.setupBoard(3);
+  presenter.setupBoard(presenter.boardSize);
   presenter.runGame();
 
   $('#boardSize a').each(function() {
@@ -77,8 +104,10 @@ $(function() {
     });
   });
 
-
-
+  $('#restart').click(function() {
+    presenter.setupBoard(presenter.boardSize);
+    presenter.runGame();
+  });
 });
 
 

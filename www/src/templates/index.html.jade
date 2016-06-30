@@ -35,50 +35,14 @@ block content
   
   .scroll
     .winsLosses
-      p Player 1 Wins:<br />
-       |Player 2 Wins:<br />
-       |Draws: <br />
-      span.restart
-       | restart
+      p Player X Wins:
+        span#playerXWins
+      p Player O Wins:
+        span#playerOWins
+      p Draws: 
+        span#draws
+      button#restart restart
   
-  //- header#hero
-  //-   .wrapper
-  //-     .logo
-  //-       img(src='/gfx/vectors/MashM.svg', height='158', width='150')
-  //-     .title
-  //-       h1 Interface Starter Package
-  //-     .cta
-  //-       a.btn.default(href='/style-guide.html') Let's Build Something!
-  //-     //img.hero-vector(src='/gfx/vectors/tic-tac-toe.svg')
-  //- 
-  //- .wrapper-fluid
-  //-   section.card-panel.feature.gfx-left
-  //-     .wrapper
-  //-       .gfx
-  //-         img.service-vector(src='/gfx/vectors/style-guide.svg')
-  //-       .description
-  //-         h2.title
-  //-           i.fa.fa-share-square-o
-  //-           | Start with the Style Guide
-  //-         p Get started building your interface with the included <a href="/style-guide.html">Style Guide</a>. In addition to providing you with several essential elements and starting components, a style guide has been provided so you can visualize each element and component as you build your interface.
-  //- 
-  //-   section.card-panel.children-col-one-half.clearfix
-  //-     .feature.gfx-top
-  //-       .wrapper
-  //-         .gfx
-  //-           img.service-vector(src='/gfx/vectors/stylus.svg')
-  //-         .description
-  //-           h2.title Powered by<br>Stylus
-  //-           p "CSS needs a hero." - <a href="http://stylus-lang.com/" target="_blank">stylus-lang.com</a>
-  //-           p Cut out the minutiae of CSS syntax and focus on logic structure that makes sense.
-  //- 
-  //-     .feature.gfx-top
-  //-       .wrapper
-  //-         .gfx
-  //-           img.service-vector(src='/gfx/vectors/pug.svg')
-  //-         .description
-  //-           h2.title Powered by<br>Pug (Jade)
-  //-           p Don't ever make another HTML syntax mistake with Pug. <a href="http://jade-lang.com/" target="_blank">jade-lang.com</a>
   
 block scripts
   script(type='text/javascript' src='/js/game/gameState.js')

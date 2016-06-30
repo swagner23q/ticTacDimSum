@@ -1,4 +1,3 @@
-
 'use strict';
 
  var gameState = function gameState() {
@@ -51,7 +50,11 @@ gameState.prototype.chkTie = function() {
 }
 
 gameState.prototype.chkWin = function(row, col, value) {
-  let h = v = dl = dr = 0;
+  let h = 0;
+  let v = 0;
+  let dl = 0;
+  let dr = 0;
+
   for (let i = 0; i < this.boardSize; i++) {
 
     //check vertical positions in arrays
@@ -66,10 +69,9 @@ gameState.prototype.chkWin = function(row, col, value) {
     //check rightwards diagonal position in arrays
     if (this.board[i][i] === value) dr++;
   }
+
+  return (h == this.boardSize || v == this.boardSize || dl == this.boardSize || dr == this.boardSize);
 }
-// gameState.prototype.gameReset = function() {
-//   if (this.userTie) {
-//     var game = new gameState;
-//   }
-// }
+
+
 module.exports.gameState = gameState;
