@@ -32,6 +32,28 @@
     to {-moz-transform: translate(0, -0px);}
 }
 
+@-webkit-keyframes steam {
+  0%  { opacity: 0; }
+  40% { opacity: 1; }
+  100% { opacity: 0; -webkit-transform: translate(-10%, -35%) ; }
+}
+
+@-webkit-keyframes wiggle {
+	0% {
+		-webkit-transform:rotate(4deg);
+	}
+	50% {
+		-webkit-transform:rotate(-4deg);
+	}
+	100% {
+		-webkit-transform:rotate(4deg);
+	}
+}
+
+.wiggle:hover {
+	-webkit-animation: wiggle 3s infinite;
+}
+
 body
   background-image url("/gfx/vectors/fullBackground.png")
   background-position center
@@ -140,6 +162,10 @@ body
       margin-right auto
       width 80%
       height 40vh
+      // background-color white
+      // border-radius 2em
+      // border-collapse separate
+      // border 3px solid black
 
       //mediaQ for phone
       @media (max-width: 667px)
@@ -161,12 +187,13 @@ body
           td
             padding 6%
             text-align center
-            // border 3px solid black
+
             &:hover
               cursor pointer
             @media (max-width: 667px)
               padding 4%
   #boardSize
+
     &:hover
       cursor pointer
 
@@ -176,16 +203,18 @@ body
     position absolute
     left 40%
     background-color #E8D0C5
-    padding-left 2%
     border-radius 0 0 10px 10px
-    a
-      font-family "madeInChina"
-      color #873939
-      text-decoration none
-      font-size 1.5em
+    p
+      padding 0
+      margin 0
+      width 100%
       &:hover
         background-color #C0A89D
-        width 300px
+      a
+        font-family "madeInChina"
+        color #873939
+        text-decoration none
+        font-size 1.5em
 
   .boardDrop
     &:hover
@@ -196,17 +225,31 @@ body
 
   .boardDrop:hover .boardLinks
     display block
-
-  .dumplings
+  .steam
+    -webkit-animation steam 2s 1s infinite
     position absolute
-    height 25%
-    bottom 0
-    left 15%
-    @media (max-width: 667px)
-      display none
-    @media (max-width: 768px) and (orientation: portrait)
-      height 20%
-      left 0
+    bottom 15%
+    z-index 4
+    left 18%
+    img
+      animation: fade 2s linear;
+  .dumplings
+    img
+      position absolute
+      height 25%
+      bottom 0
+      left 15%
+      &:hover
+        -webkit-transform-origin: top center;
+        transform-origin: top center;
+        -webkit-animation-name: swing;
+        animation-name: swing;
+      @media (max-width: 667px)
+        display none
+      @media (max-width: 768px) and (orientation: portrait)
+        height 20%
+        left 0
+
   .scroll
     background-image url('/gfx/vectors/WinnerScroll.png')
     background-position center
@@ -239,6 +282,8 @@ body
         font-family "madeInChina" !important
         color #533317
         font-size 1.3em
+      @media (max-width: 667px)
+        padding-top 3%
   .hamburger
     height 10%
     display none
@@ -248,12 +293,15 @@ body
       position relative
       left 5px
   .restart
-    background: #E8D0C5;
+    background #E8D0C5
     padding 2%
-    border: 2px solid #873939;
-    border-radius: 8px;
-    font-family: "MadeinChina";
-    font-size: 25.26px;
-    color: #873939;
+    border 2px solid #873939
+    border-radius 8px
+    font-family "MadeinChina"
+    font-size 25.26px
+    color #873939
     &:hover
       cursor pointer
+    @media (max-width: 667px)
+      padding 1%
+      font-size 1.2em
