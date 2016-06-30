@@ -54,6 +54,7 @@ webPresenter.prototype.getCurrentPlayer = function () {
 webPresenter.prototype.changeCurrentPlayer = function () {
   if (this.currentPlayer === "X") {
     this.currentPlayer = "O";
+
   } else {
     this.currentPlayer = "X";
   }
