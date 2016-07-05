@@ -54,9 +54,7 @@ webPresenter.prototype.chkTie = function () {
 webPresenter.prototype.showMove = function (row, col, value, element) {
   if (presenter.getCurrentPlayer() === "X") {
     element.addClass('bao');
-    // element.html('<img src="/gfx/vectors/bao.png">');
   } else {
-    // element.html('<img src="/gfx/vectors/eggtart.png">');
     element.addClass('eggtart');
     }
 }
@@ -77,6 +75,15 @@ webPresenter.prototype.changeCurrentPlayer = function () {
     this.currentPlayer = "X";
   }
 };
+
+// webPresenter.prototype.showCurrentPlayer = function () {
+//   if (this.getCurrentPlayer() === "X") {
+//     $('#baoTurn').html('<img src="floaterHumTurn.png">');
+//   } else {
+//     $('#tartTurn').hide();
+//     $('#baoTurn').html('<img src="floaterHumTurn.png">');
+//   }
+// };
 
 webPresenter.prototype.printBoard = function () {
 
@@ -116,10 +123,15 @@ $(function() {
 
   $('#boardSize a').each(function() {
     $(this).click(function(e) {
-      let boardSize = $(this).data('size');
-      e.preventDefault();
-      presenter.setupBoard(boardSize);
-      presenter.runGame();
+      var proceed = confirm("Warning! This will reset the game, continue?");
+      if (proceed === true) {
+        let boardSize = $(this).data('size');
+        e.preventDefault();
+        presenter.setupBoard(boardSize);
+        presenter.runGame();
+      } else {
+          return;
+      }
     });
   });
 
