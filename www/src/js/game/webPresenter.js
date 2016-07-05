@@ -33,20 +33,33 @@ webPresenter.prototype.setMove = function (row, col, value, element) {
         $('#overlay').show();
         $('#winPrompt').addClass('winO');
       }
-
     }
-    if (this.gameState.chkTie()) {
-      this.draws++;
-      $('#overlay').show();
-      $('#winPrompt').addClass('draw');
-      $('#draws').html(" " + this.draws);
-    }
-    element.html(presenter.getCurrentPlayer());
+    this.chkTie();
+    this.showMove(row, col, value, element);
     this.changeCurrentPlayer();
   } else {
       alert("Not a valid move");
   }
 };
+
+webPresenter.prototype.chkTie = function () {
+  if (this.gameState.chkTie()) {
+    this.draws++;
+    $('#overlay').show();
+    $('#winPrompt').addClass('draw');
+    $('#draws').html(" " + this.draws);
+  }
+};
+
+webPresenter.prototype.showMove = function (row, col, value, element) {
+  if (presenter.getCurrentPlayer() === "X") {
+    element.addClass('bao');
+    // element.html('<img src="/gfx/vectors/bao.png">');
+  } else {
+    // element.html('<img src="/gfx/vectors/eggtart.png">');
+    element.addClass('eggtart');
+    }
+}
 
 webPresenter.prototype.getBoard = function () {
   return this.gameState.board;
@@ -117,7 +130,5 @@ $(function() {
     $('#winPrompt').removeClass();
   });
 });
-
-
 
 module.exports.webPresenter = webPresenter;
