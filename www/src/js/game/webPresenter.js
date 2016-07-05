@@ -25,15 +25,20 @@ webPresenter.prototype.setMove = function (row, col, value, element) {
       if (value === "X") {
         this.playerXWins++;
         $('#playerXWins').html(" " + this.playerXWins);
+        $('#overlay').show();
+        $('#winPrompt').addClass('winX');
       } else {
         this.playerOWins++;
         $('#playerOWins').html(" " + this.playerOWins);
+        $('#overlay').show();
+        $('#winPrompt').addClass('winO');
       }
-      alert(value + " has won!");
+
     }
     if (this.gameState.chkTie()) {
       this.draws++;
-      alert("its a draw");
+      $('#overlay').show();
+      $('#winPrompt').addClass('draw');
       $('#draws').html(" " + this.draws);
     }
     element.html(presenter.getCurrentPlayer());
@@ -108,6 +113,8 @@ $(function() {
   $('#restart').click(function() {
     presenter.setupBoard(presenter.boardSize);
     presenter.runGame();
+    $('#overlay').hide();
+    $('#winPrompt').removeClass();
   });
 });
 
