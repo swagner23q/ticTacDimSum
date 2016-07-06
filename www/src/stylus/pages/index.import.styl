@@ -148,6 +148,16 @@ body
     .first-child
       @media (max-width: 667px)
         margin auto
+  #chooseCharacter
+    &:hover li
+      display block
+
+    li
+      display none
+      a
+        &:hover
+          transition: all .2s ease-in-out;
+          transform: scale(1.3);
 
   .cloud2
     position absolute
@@ -165,13 +175,11 @@ body
     @media (max-width: 320px)
       top 55%
   #gameBoard
+    @extend .background
     z-index 1
     position relative
     top 8%
     background-image url('/gfx/vectors/Board.png')
-    background-position center
-    background-repeat no-repeat
-    background-size 100% 100%
     padding 10%
     padding-top 5.5%
     width 80vw
@@ -220,9 +228,7 @@ body
       padding 0
 
     table
-      background-position center
-      background-repeat no-repeat
-      background-size 100% 100%
+      @extend .background
       position relative
       margin-left auto
       margin-right auto
@@ -316,9 +322,7 @@ body
 
   .scroll
     background-image url('/gfx/vectors/WinnerScroll.png')
-    background-position center
-    background-repeat no-repeat
-    background-size 100% 100%
+    @extend .background
     height 30%
     width 400px
     position relative
@@ -384,28 +388,8 @@ body
     top 0
     display none
   .winX
-    position relative
-    display block
-    margin auto
-    top -75%
-    width auto
-    height 35%
-    background-image url('/gfx/vectors/BaoWins.png')
-    background-size contain
-    background-position center
-    background-repeat no-repeat
-    z-index 5
+    winningPanel('/gfx/vectors/BaoWins.png')
   .winO
-    position relative
-    display block
-    margin auto
-    top -75%
-    width auto
-    height 35%
-    background-image url('/gfx/vectors/MrtartWins.png')
-    background-size contain
-    background-position center
-    background-repeat no-repeat
-    z-index 5
+    winningPanel('/gfx/vectors/MrtartWins.png')
   .draw
     winningPanel('/gfx/vectors/Draw.png')
