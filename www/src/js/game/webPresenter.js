@@ -53,8 +53,11 @@ webPresenter.prototype.chkTie = function () {
 
 webPresenter.prototype.showMove = function (row, col, value, element) {
   if (presenter.getCurrentPlayer() === "X") {
+    audio.play();
     element.addClass('bao');
+
   } else {
+    audio2.play();
     element.addClass('eggtart');
     }
 }
@@ -114,7 +117,8 @@ webPresenter.prototype.runGame = function () {
 
 var state = new gameState();
 var presenter = new webPresenter(state);
-
+var audio = new Audio('/sfx/punch.mp3');
+var audio2 = new Audio('/sfx/splat.wav');
 
 //jQuery here
 $(function() {
@@ -142,5 +146,6 @@ $(function() {
     $('#winPrompt').removeClass();
   });
 });
+
 
 module.exports.webPresenter = webPresenter;

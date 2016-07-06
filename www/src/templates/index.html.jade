@@ -3,7 +3,8 @@ block vars
   - var bodyClass = 'index';
 
 block content
-  //- embed(src='/sfx/chineseRestaurant.mp3', loop='true', autostart='true')
+  audio(controls='', loop='', autoplay='')
+    source(src='/sfx/chineseRestaurant.mp3', type='audio/mp3')
   nav
     ul
       img.hamburger(src='/gfx/vectors/hamburger.png')
