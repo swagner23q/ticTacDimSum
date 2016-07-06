@@ -6,8 +6,9 @@ block content
   audio(controls='', loop='', autoplay='')
     source(src='/sfx/chineseRestaurant.mp3', type='audio/mp3')
   nav
+    span(onclick='openNav()')
+        img.hamburger(src='/gfx/vectors/hamburger.png')
     ul
-      img.hamburger(src='/gfx/vectors/hamburger.png')
       li.first-child ticTac  
             img(src='/gfx/vectors/chopsticks.png') 
             |  DimSum
@@ -22,19 +23,46 @@ block content
                   p &nbsp;&nbsp;&nbsp;
                     a(href='#', data-size='5') 5x5
       li Choose Character
-  //- #mySidenav.sidenav
-  //-   a.closebtn(href='javascript:void(0)', onclick='closeNav()') X
-  //-   br
-  //-   p
-  //-     a(href='#') Board Size
-  //-     br
-  //-     a(href='#') Choose a Character
-  //- span(style='font-size:30px;cursor:pointer', onclick='openNav()') ☰
+        ul#chooseCharacter
+          li
+            a(href='#', data-charId='1')
+              img(src='/gfx/vectors/eggtart.png')
+            a(href='#', data-charId='2')
+              img(src='/gfx/vectors/bao.png')
+            a(href='#', data-charId='3')
+              img(src='/gfx/vectors/harGow.png')
+            a(href='#', data-charId='4')
+              img(src='/gfx/vectors/dumpling.png')
+            a(href='#', data-charId='5')
+              img(src='/gfx/vectors/shumai.png')
+            a(href='#', data-charId='6')
+              img(src='/gfx/vectors/sesame.png')
+          
+      
+  #mySidenav.sidenav
+    a.closebtn(href='javascript:void(0)', onclick='closeNav()') X
+    br
+    p
+      a#boards.hoverBoard(href='#')
+        | Board Size 
+        i.fa.fa-caret-down
+      #boardSizes
+        a(href='#', data-size='3') 3x3
+        br
+        a(href='#', data-size='4') 4x4
+        br
+        a(href='#', data-size='5') 5x5
+        br
+      br
+      a(href='#')
+        | Choose a Character 
+        i.fa.fa-caret-down
+  
   #gameBoard
   
 
-  img.floating.cloud1(src='/gfx/vectors/floaterEtart.png')
-  img.floating.cloud2(src='/gfx/vectors/floaterHum.png')
+  img#playerO.floating.cloud1(src='/gfx/vectors/floaterEtart.png')
+  img#playerX.floating.cloud2(src='/gfx/vectors/floaterHum.png')
   .steam
     img(src='/gfx/vectors/steam.png')
 
@@ -45,15 +73,15 @@ block content
   .scroll
     .winsLosses
       p Mr.Tart Wins:
-        span#playerXWins
-      p Mr.Bao Wins:
         span#playerOWins
+      p Mr.Bao Wins:
+        span#playerXWins
       p Draws: 
         span#draws
       button#restart restart
       
   #overlay
-  #winPrompt
+  #winPrompt.animated.rotateIn
   
 block scripts
   script(type='text/javascript' src='/js/game/gameState.js')

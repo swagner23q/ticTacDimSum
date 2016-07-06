@@ -1,5 +1,12 @@
 'use strict';
 
+function openNav() {
+  document.getElementById("mySidenav").style.width = "75%";
+}
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+
 var webPresenter = function(gameState) {
   this.gameState = gameState;
   this.currentPlayer = "X";
@@ -7,6 +14,15 @@ var webPresenter = function(gameState) {
   this.playerXWins = 0;
   this.playerOWins = 0;
   this.draws = 0;
+  this.players = [];
+  this.characterMap = {
+    1: '/gfx/vectors/eggtart.png',
+    2: '/gfx/vectors/bao.png',
+    3: '/gfx/vectors/harGow.png',
+    4: '/gfx/vectors/dumpling.png',
+    5: '/gfx/vectors/shumai.png',
+    6: '/gfx/vectors/sesame.png'
+  };
 };
 
 webPresenter.prototype.setupBoard = function (boardSize) {
@@ -15,7 +31,16 @@ webPresenter.prototype.setupBoard = function (boardSize) {
   $('#gameBoard').addClass('size-' + boardSize);
   this.boardSize = boardSize;
   this.gameState.filledCells = 0;
+  this.changeCurrentPlayer();
+  this.players["X"] = [];
+  this.players["O"] = [];
+  this.players["X"]['charId'] = 2;
+  this.players["O"]['charId'] = 1;
 }
+
+webPresenter.prototype.setPlayerCharacter = function (player, charId) {
+  this.players[player]['charId'] = charId;
+};
 
 webPresenter.prototype.setMove = function (row, col, value, element) {
   if (this.gameState.isValidMove(row, col)) {
@@ -33,8 +58,9 @@ webPresenter.prototype.setMove = function (row, col, value, element) {
         $('#overlay').show();
         $('#winPrompt').addClass('winO');
       }
+    } else {
+      this.chkTie();
     }
-    this.chkTie();
     this.showMove(row, col, value, element);
     this.changeCurrentPlayer();
   } else {
@@ -54,11 +80,13 @@ webPresenter.prototype.chkTie = function () {
 webPresenter.prototype.showMove = function (row, col, value, element) {
   if (presenter.getCurrentPlayer() === "X") {
     audio.play();
-    element.addClass('bao');
+    element.addClass('playerIcon');
+    element.css('background-image', 'url(' + this.characterMap[this.players["X"]['charId']] + ')');
 
   } else {
     audio2.play();
-    element.addClass('eggtart');
+    element.addClass('playerIcon');
+    element.css('background-image', 'url(' + this.characterMap[this.players["O"]['charId']] + ')');
     }
 }
 
@@ -73,20 +101,14 @@ webPresenter.prototype.getCurrentPlayer = function () {
 webPresenter.prototype.changeCurrentPlayer = function () {
   if (this.currentPlayer === "X") {
     this.currentPlayer = "O";
-
+    $('#playerO').attr('src', '/gfx/vectors/floaterEtartTurn.png');
+    $('#playerX').attr('src', '/gfx/vectors/floaterHum.png');
   } else {
     this.currentPlayer = "X";
+    $('#playerX').attr('src', '/gfx/vectors/floaterBaoTurn.png');
+    $('#playerO').attr('src', '/gfx/vectors/floaterEtart.png');
   }
 };
-
-// webPresenter.prototype.showCurrentPlayer = function () {
-//   if (this.getCurrentPlayer() === "X") {
-//     $('#baoTurn').html('<img src="floaterHumTurn.png">');
-//   } else {
-//     $('#tartTurn').hide();
-//     $('#baoTurn').html('<img src="floaterHumTurn.png">');
-//   }
-// };
 
 webPresenter.prototype.printBoard = function () {
 
@@ -138,12 +160,39 @@ $(function() {
       }
     });
   });
+  $('#boardSizes a').each(function() {
+    $(this).click(function(e) {
+      var proceed = confirm("Warning! This will reset the game, continue?");
+      if (proceed === true) {
+        let boardSize = $(this).data('size');
+        e.preventDefault();
+        presenter.setupBoard(boardSize);
+        presenter.runGame();
+      } else {
+          return;
+      }
+    });
+  });
+
 
   $('#restart').click(function() {
     presenter.setupBoard(presenter.boardSize);
     presenter.runGame();
     $('#overlay').hide();
     $('#winPrompt').removeClass();
+  });
+
+  $('#boards').click(function() {
+  $('#boardSizes').toggle();
+  });
+
+  $('#chooseCharacter a').each(function() {
+    $(this).click(function(e) {
+      e.preventDefault();
+      let charId = $(this).data('charid');
+      presenter.setPlayerCharacter(presenter.currentPlayer, charId);
+      console.log(presenter.players);
+    });
   });
 });
 

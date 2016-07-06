@@ -54,25 +54,14 @@
 	-webkit-animation: wiggle 3s infinite;
 }
 
-@-webkit-keyframes rotateIn {
-  from {
-    -webkit-transform-origin: center;
-    transform-origin: center;
-    -webkit-transform: rotate3d(0, 0, 1, -200deg);
-    transform: rotate3d(0, 0, 1, -200deg);
-    opacity: 0;
-  }
-
-  to {
-    -webkit-transform-origin: center;
-    transform-origin: center;
-    -webkit-transform: none;
-    transform: none;
-    opacity: 1;
-  }
-}
 audio
-  display none
+  position absolute
+  width 47px
+  top 5px
+  right 5px
+  z-index 6
+  background-color #972629
+  border-radius 10em
 body
   background-image url("/gfx/vectors/fullBackground.png")
   background-position center
@@ -82,26 +71,49 @@ body
   width 100%
   cursor:url('/gfx/icons/chopsticks.cur'), auto;
 
+.sidenav
+  height 45%
+  width 0
+  position fixed
+  z-index 1
+  top 0
+  left 0
+  overflow-x hidden
+  transition 0.5s
+  background #E8D0C5
+  box-shadow 0px 2px 4px 0px rgba(0,0,0,0.50)
+  z-index 6
+  a
+    padding-left 5%
+    text-decoration none
+    font-size 1.5em
+    color #873939
+    display block
+    transition 0.3s
+    font-family "madeInChina"
+
+#boardSizes
+  display none
+
+.sidenav a:hover, .offcanvas a:focus
+  background-color #E8D0C5
+  width 100%
+
+.closebtn
+  position absolute
+  top 5px
+  right 5px
+  font-size 3em
+  margin-left 50px
+
 .index
-  .baoTurn {
-
-
-  }
   .bao
+    @extend .playerIcon
     background-image url('/gfx/vectors/bao.png')
-    background-repeat: no-repeat;
-    background-position: center;
-    min-height: 55%;
-    width: auto;
-    z-index 4
 
   .eggtart
+    @extend .playerIcon
     background-image url('/gfx/vectors/eggtart.png')
-    background-repeat: no-repeat;
-    background-position: center;
-    min-height: 55%;
-    width: auto;
-    z-index 4
 
   nav
     position absolute
@@ -339,14 +351,16 @@ body
         font-size 1.3em
       @media (max-width: 667px)
         padding-top 7%
+
   .hamburger
-    height 10%
     display none
     //mediaQ for phone
     @media (max-width: 667px)
+      height 2vh
       display block
-      position relative
-      left 5px
+      position absolute
+      bottom 15px
+      left 10px
   #restart
     background #E8D0C5
     padding 2%
@@ -381,8 +395,6 @@ body
     background-position center
     background-repeat no-repeat
     z-index 5
-    -webkit-animation-name: rotateIn;
-    animation-name: rotateIn;
   .winO
     position relative
     display block
@@ -396,14 +408,4 @@ body
     background-repeat no-repeat
     z-index 5
   .draw
-    position relative
-    display block
-    margin auto
-    top -75%
-    width auto
-    height 35%
-    background-image url('/gfx/vectors/Draw.png')
-    background-size contain
-    background-position center
-    background-repeat no-repeat
-    z-index 5
+    winningPanel('/gfx/vectors/Draw.png')
