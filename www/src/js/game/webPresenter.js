@@ -48,16 +48,19 @@ webPresenter.prototype.setMove = function (row, col, value, element) {
 
     if (this.gameState.chkWin(row, col, value)) {
       if (value === "X") {
+        // audio3.play();
         this.playerXWins++;
         $('#playerXWins').html(" " + this.playerXWins);
         $('#overlay').show();
         $('#winPrompt').addClass('winX');
-        // $('#winPrompt').html('<p>Mr.player Wins!</p>');
+        $('#winPrompt').animate({height: '40vh'});
       } else {
+        // audio3.play();
         this.playerOWins++;
         $('#playerOWins').html(" " + this.playerOWins);
         $('#overlay').show();
         $('#winPrompt').addClass('winO');
+        $('#winPrompt').animate({height: '40vh'});
       }
     } else {
       this.chkTie();
@@ -74,6 +77,7 @@ webPresenter.prototype.chkTie = function () {
     this.draws++;
     $('#overlay').show();
     $('#winPrompt').addClass('draw');
+    $('#winPrompt').animate({height: '40vh'});
     $('#draws').html(" " + this.draws);
   }
 };
@@ -142,6 +146,7 @@ var state = new gameState();
 var presenter = new webPresenter(state);
 var audio = new Audio('/sfx/punch.mp3');
 var audio2 = new Audio('/sfx/splat.wav');
+var audio3 = new Audio('/sfx/win.mp3');
 
 //jQuery here
 $(function() {
