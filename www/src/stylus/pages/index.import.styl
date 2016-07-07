@@ -88,7 +88,6 @@ body
     text-decoration none
     font-size 1.5em
     color #873939
-    display block
     transition 0.3s
     font-family "madeInChina"
 
@@ -148,16 +147,52 @@ body
     .first-child
       @media (max-width: 667px)
         margin auto
-  #chooseCharacter
-    &:hover li
-      display block
-
-    li
-      display none
-      a
+  #chooseCharacter2
+    list-style none
+    text-decoration none
+    font-size 1.5em
+    color #873939
+    font-family "madeInChina"
+    padding 0
+    margin 0
+    a
+      &:hover
+        cursor pointer
+        display inline!important
+      img
+        width 10%
         &:hover
           transition: all .2s ease-in-out;
           transform: scale(1.3);
+
+  .choose:hover
+    cursor pointer
+  #chooseCharacter
+    display none
+    position absolute
+    right 5%
+    width 260px
+    height auto
+    background-color #E8D0C5
+    border-radius 0 0 10px 10px
+    li
+      padding-bottom 3%
+      padding-top 3%
+      &:hover
+        cursor pointer
+        background-color #C0A89D
+      .charBox
+        display none
+        img
+          height 25px
+          margin 1%
+          width 30px
+          margin-left: 3%
+          &:hover
+            transition: all .2s ease-in-out;
+            transform: scale(1.3);
+  .choose:hover #chooseCharacter
+    display block
 
   .cloud2
     position absolute

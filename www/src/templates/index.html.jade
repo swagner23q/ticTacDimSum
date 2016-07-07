@@ -3,8 +3,8 @@ block vars
   - var bodyClass = 'index';
 
 block content
-  audio(controls='', loop='', autoplay='')
-    source(src='/sfx/chineseRestaurant.mp3', type='audio/mp3')
+  //- audio(controls='', loop='', autoplay='')
+  //-   source(src='/sfx/chineseRestaurant.mp3', type='audio/mp3')
   nav
     span(onclick='openNav()')
         img.hamburger(src='/gfx/vectors/hamburger.png')
@@ -22,44 +22,86 @@ block content
                     a(href='#', data-size='4') 4x4
                   p &nbsp;&nbsp;&nbsp;
                     a(href='#', data-size='5') 5x5
-      li Choose Character
+      li.choose Choose Character
         ul#chooseCharacter
-          li Player One
-          li Player Two
-            .charBox
-            a(href='#', data-charId='1')
-              img(src='/gfx/vectors/eggtart.png')
-            a(href='#', data-charId='2')
-              img(src='/gfx/vectors/bao.png')
-            a(href='#', data-charId='3')
-              img(src='/gfx/vectors/harGow.png')
-            a(href='#', data-charId='4')
-              img(src='/gfx/vectors/dumpling.png')
-            a(href='#', data-charId='5')
-              img(src='/gfx/vectors/shumai.png')
-            a(href='#', data-charId='6')
-              img(src='/gfx/vectors/sesame.png')
+          li.toggleCharBox &nbsp;&nbsp;Player One
+            i.fa.fa-caret-down
+            #playerOne.charBox
+              a(href='#', data-charId='1')
+                img(src='/gfx/vectors/eggtart.png')
+              a(href='#', data-charId='2')
+                img(src='/gfx/vectors/bao.png')
+              a(href='#', data-charId='3')
+                img(src='/gfx/vectors/harGow.png')
+              a(href='#', data-charId='4')
+                img(src='/gfx/vectors/dumpling.png')
+              a(href='#', data-charId='5')
+                img(src='/gfx/vectors/shumai.png')
+              a(href='#', data-charId='6')
+                img(src='/gfx/vectors/sesame.png')
+          li.toggleCharBox &nbsp;&nbsp;Player Two
+            i.fa.fa-caret-down
+            #playerTwo.charBox
+              a(href='#', data-charId='1')
+                img(src='/gfx/vectors/eggtart.png')
+              a(href='#', data-charId='2')
+                img(src='/gfx/vectors/bao.png')
+              a(href='#', data-charId='3')
+                img(src='/gfx/vectors/harGow.png')
+              a(href='#', data-charId='4')
+                img(src='/gfx/vectors/dumpling.png')
+              a(href='#', data-charId='5')
+                img(src='/gfx/vectors/shumai.png')
+              a(href='#', data-charId='6')
+                img(src='/gfx/vectors/sesame.png')
           
       
   #mySidenav.sidenav
     a.closebtn(href='javascript:void(0)', onclick='closeNav()') X
     br
-    p
-      a#boards.hoverBoard(href='#')
-        | Board Size 
-        i.fa.fa-caret-down
-      #boardSizes
-        a(href='#', data-size='3') 3x3
-        br
-        a(href='#', data-size='4') 4x4
-        br
-        a(href='#', data-size='5') 5x5
-        br
+    a#boards.hoverBoard(href='#')
+      | Board Size 
+      i.fa.fa-caret-down
+    #boardSizes
+      a(href='#', data-size='3') 3x3
       br
-      a(href='#')
-        | Choose a Character 
+      a(href='#', data-size='4') 4x4
+      br
+      a(href='#', data-size='5') 5x5
+      br
+    ul#chooseCharacter2
+      li.toggleCharBox &nbsp;&nbsp;Player One
         i.fa.fa-caret-down
-  
+        #playerOne.charBox
+          a(href='#', data-charId='1')
+            img(src='/gfx/vectors/eggtart.png')
+          a(href='#', data-charId='2')
+            img(src='/gfx/vectors/bao.png')
+          a(href='#', data-charId='3')
+            img(src='/gfx/vectors/harGow.png')
+          a(href='#', data-charId='4')
+            img(src='/gfx/vectors/dumpling.png')
+          a(href='#', data-charId='5')
+            img(src='/gfx/vectors/shumai.png')
+          a(href='#', data-charId='6')
+            img(src='/gfx/vectors/sesame.png')
+      li.toggleCharBox &nbsp;&nbsp;Player Two
+        i.fa.fa-caret-down
+        #playerTwo.charBox
+          a(href='#', data-charId='1')
+            img(src='/gfx/vectors/eggtart.png')
+          a(href='#', data-charId='2')
+            img(src='/gfx/vectors/bao.png')
+          a(href='#', data-charId='3')
+            img(src='/gfx/vectors/harGow.png')
+          a(href='#', data-charId='4')
+            img(src='/gfx/vectors/dumpling.png')
+          a(href='#', data-charId='5')
+            img(src='/gfx/vectors/shumai.png')
+          a(href='#', data-charId='6')
+            img(src='/gfx/vectors/sesame.png')
+        
+
   #gameBoard
   
 
@@ -83,7 +125,7 @@ block content
       button#restart restart
       
   #overlay
-  #winPrompt.animated.rotateIn
+  #winPrompt
   
 block scripts
   script(type='text/javascript' src='/js/game/gameState.js')

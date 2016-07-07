@@ -52,6 +52,7 @@ webPresenter.prototype.setMove = function (row, col, value, element) {
         $('#playerXWins').html(" " + this.playerXWins);
         $('#overlay').show();
         $('#winPrompt').addClass('winX');
+        // $('#winPrompt').html('<p>Mr.player Wins!</p>');
       } else {
         this.playerOWins++;
         $('#playerOWins').html(" " + this.playerOWins);
@@ -186,12 +187,42 @@ $(function() {
   $('#boardSizes').toggle();
   });
 
+  $('.toggleCharBox').each(function() {
+    $(this).click(function(e) {
+      $(this).find('.charBox').slideToggle();
+    });
+  });
+
   $('#chooseCharacter a').each(function() {
     $(this).click(function(e) {
-      e.preventDefault();
-      let charId = $(this).data('charid');
-      presenter.setPlayerCharacter(presenter.currentPlayer, charId);
-      console.log(presenter.players);
+      if (presenter.gameState.filledCells === 0) {
+        e.preventDefault();
+        let charId = $(this).data('charid');
+        if ($(this).parent().attr('id') === 'playerOne') {
+          presenter.setPlayerCharacter("O", charId);
+        } else {
+            presenter.setPlayerCharacter("X", charId);
+        }
+
+      } else {
+        alert("You must have a new game to change characters");
+      }
+    });
+  });
+  $('#chooseCharacter2 a').each(function() {
+    $(this).click(function(e) {
+      if (presenter.gameState.filledCells === 0) {
+        e.preventDefault();
+        let charId = $(this).data('charid');
+        if ($(this).parent().attr('id') === 'playerOne') {
+          presenter.setPlayerCharacter("O", charId);
+        } else {
+            presenter.setPlayerCharacter("X", charId);
+        }
+
+      } else {
+        alert("You must have a new game to change characters");
+      }
     });
   });
 });
