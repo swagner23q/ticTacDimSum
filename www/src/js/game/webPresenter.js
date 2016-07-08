@@ -16,12 +16,12 @@ var webPresenter = function(gameState) {
   this.draws = 0;
   this.players = [];
   this.characterMap = {
-    1: '/gfx/vectors/eggtart.png',
-    2: '/gfx/vectors/bao.png',
-    3: '/gfx/vectors/harGow.png',
-    4: '/gfx/vectors/dumpling.png',
-    5: '/gfx/vectors/shumai.png',
-    6: '/gfx/vectors/sesame.png'
+    1: '/dimSum/gfx/vectors/eggtart.png',
+    2: '/dimSum/gfx/vectors/bao.png',
+    3: '/dimSum/gfx/vectors/harGow.png',
+    4: '/dimSum/gfx/vectors/dumpling.png',
+    5: '/dimSum/gfx/vectors/shumai.png',
+    6: '/dimSum/gfx/vectors/sesame.png'
   };
 };
 
@@ -106,12 +106,12 @@ webPresenter.prototype.getCurrentPlayer = function () {
 webPresenter.prototype.changeCurrentPlayer = function () {
   if (this.currentPlayer === "X") {
     this.currentPlayer = "O";
-    $('#playerO').attr('src', '/gfx/vectors/playerCloudSelect.png');
-    $('#playerX').attr('src', '/gfx/vectors/player2Cloud.png');
+    $('#playerO').attr('src', '/dimSum/gfx/vectors/playerCloudSelect.png');
+    $('#playerX').attr('src', '/dimSum/gfx/vectors/player2Cloud.png');
   } else {
     this.currentPlayer = "X";
-    $('#playerX').attr('src', '/gfx/vectors/player2CloudSelect.png');
-    $('#playerO').attr('src', '/gfx/vectors/playerCloud.png');
+    $('#playerX').attr('src', '/dimSum/gfx/vectors/player2CloudSelect.png');
+    $('#playerO').attr('src', '/dimSum/gfx/vectors/playerCloud.png');
   }
 };
 
@@ -144,9 +144,9 @@ webPresenter.prototype.runGame = function () {
 
 var state = new gameState();
 var presenter = new webPresenter(state);
-var audio = new Audio('/sfx/punch.mp3');
-var audio2 = new Audio('/sfx/splat.wav');
-var audio3 = new Audio('/sfx/win.mp3');
+var audio = new Audio('/dimSum/sfx/punch.mp3');
+var audio2 = new Audio('/dimSum/sfx/splat.wav');
+var audio3 = new Audio('/dimSum/sfx/win.mp3');
 
 //jQuery here
 $(function() {

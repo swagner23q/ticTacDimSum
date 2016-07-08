@@ -5,13 +5,13 @@ block vars
 block content
   #fb-root
   audio(controls='', loop='', autoplay='')
-    source(src='/sfx/chineseRestaurant.mp3', type='audio/mp3')
+    source(src='/dimSum/sfx/chineseRestaurant.mp3', type='audio/mp3')
   nav
     span(onclick='openNav()')
-        img.hamburger(src='/gfx/vectors/hamburger.png')
+        img.hamburger(src='/dimSum/gfx/vectors/hamburger.png')
     ul
       li.first-child ticTac  
-            img(src='/gfx/vectors/chopsticks.png') 
+            img(src='/dimSum/gfx/vectors/chopsticks.png') 
             |  DimSum
       li.boardDrop Choose Board Size
         ul#boardSize
@@ -29,32 +29,32 @@ block content
             i.fa.fa-caret-down
             #playerOne.charBox
               a(href='#', data-charId='1')
-                img(src='/gfx/vectors/eggtart.png')
+                img(src='/dimSum/gfx/vectors/eggtart.png')
               a(href='#', data-charId='2')
-                img(src='/gfx/vectors/bao.png')
+                img(src='/dimSum/gfx/vectors/bao.png')
               a(href='#', data-charId='3')
-                img(src='/gfx/vectors/harGow.png')
+                img(src='/dimSum/gfx/vectors/harGow.png')
               a(href='#', data-charId='4')
-                img(src='/gfx/vectors/dumpling.png')
+                img(src='/dimSum/gfx/vectors/dumpling.png')
               a(href='#', data-charId='5')
-                img(src='/gfx/vectors/shumai.png')
+                img(src='/dimSum/gfx/vectors/shumai.png')
               a(href='#', data-charId='6')
-                img(src='/gfx/vectors/sesame.png')
+                img(src='/dimSum/gfx/vectors/sesame.png')
           li.toggleCharBox &nbsp;&nbsp;Player Two
             i.fa.fa-caret-down
             #playerTwo.charBox
               a(href='#', data-charId='1')
-                img(src='/gfx/vectors/eggtart.png')
+                img(src='/dimSum/gfx/vectors/eggtart.png')
               a(href='#', data-charId='2')
-                img(src='/gfx/vectors/bao.png')
+                img(src='/dimSum/gfx/vectors/bao.png')
               a(href='#', data-charId='3')
-                img(src='/gfx/vectors/harGow.png')
+                img(src='/dimSum/gfx/vectors/harGow.png')
               a(href='#', data-charId='4')
-                img(src='/gfx/vectors/dumpling.png')
+                img(src='/dimSum/gfx/vectors/dumpling.png')
               a(href='#', data-charId='5')
-                img(src='/gfx/vectors/shumai.png')
+                img(src='/dimSum/gfx/vectors/shumai.png')
               a(href='#', data-charId='6')
-                img(src='/gfx/vectors/sesame.png')
+                img(src='/dimSum/gfx/vectors/sesame.png')
           
       
   #mySidenav.sidenav
@@ -75,45 +75,45 @@ block content
         i.fa.fa-caret-down
         #playerOne.charBox
           a(href='#', data-charId='1')
-            img(src='/gfx/vectors/eggtart.png')
+            img(src='/dimSum/gfx/vectors/eggtart.png')
           a(href='#', data-charId='2')
-            img(src='/gfx/vectors/bao.png')
+            img(src='/dimSum/gfx/vectors/bao.png')
           a(href='#', data-charId='3')
-            img(src='/gfx/vectors/harGow.png')
+            img(src='/dimSum/gfx/vectors/harGow.png')
           a(href='#', data-charId='4')
-            img(src='/gfx/vectors/dumpling.png')
+            img(src='/dimSum/gfx/vectors/dumpling.png')
           a(href='#', data-charId='5')
-            img(src='/gfx/vectors/shumai.png')
+            img(src='/dimSum/gfx/vectors/shumai.png')
           a(href='#', data-charId='6')
-            img(src='/gfx/vectors/sesame.png')
+            img(src='/dimSum/gfx/vectors/sesame.png')
       li.toggleCharBox &nbsp;&nbsp;Player Two
         i.fa.fa-caret-down
         #playerTwo.charBox
           a(href='#', data-charId='1')
-            img(src='/gfx/vectors/eggtart.png')
+            img(src='/dimSum/gfx/vectors/eggtart.png')
           a(href='#', data-charId='2')
-            img(src='/gfx/vectors/bao.png')
+            img(src='/dimSum/gfx/vectors/bao.png')
           a(href='#', data-charId='3')
-            img(src='/gfx/vectors/harGow.png')
+            img(src='/dimSum/gfx/vectors/harGow.png')
           a(href='#', data-charId='4')
-            img(src='/gfx/vectors/dumpling.png')
+            img(src='/dimSum/gfx/vectors/dumpling.png')
           a(href='#', data-charId='5')
-            img(src='/gfx/vectors/shumai.png')
+            img(src='/dimSum/gfx/vectors/shumai.png')
           a(href='#', data-charId='6')
-            img(src='/gfx/vectors/sesame.png')
+            img(src='/dimSum/gfx/vectors/sesame.png')
         
 
   #gameBoard
   
 
-  img#playerO.floating.cloud1(src='/gfx/vectors/playerCloud.png')
-  img#playerX.floating.cloud2(src='/gfx/vectors/player2Cloud.png')
+  img#playerO.floating.cloud1(src='/dimSum/gfx/vectors/playerCloud.png')
+  img#playerX.floating.cloud2(src='/dimSum/gfx/vectors/player2Cloud.png')
   .steam
-    img(src='/gfx/vectors/steam.png')
+    img(src='/dimSum/gfx/vectors/steam.png')
 
 
   .dumplings
-    img.wiggle(src='/gfx/vectors/BasketODumplings.png')
+    img.wiggle(src='/dimSum/gfx/vectors/BasketODumplings.png')
   
   .scroll
     .winsLosses
@@ -131,5 +131,5 @@ block content
   #winPrompt
   
 block scripts
-  script(type='text/javascript' src='/js/game/gameState.js')
-  script(type='text/javascript' src='/js/game/webPresenter.js')
+  script(type='text/javascript' src='/dimSum/js/game/gameState.js')
+  script(type='text/javascript' src='/dimSum/js/game/webPresenter.js')

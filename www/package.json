@@ -9,7 +9,7 @@
     "build-js": "gulp build-js",
     "build-html": "gulp build-html",
     "watch-files": "gulp watch",
-    "clean": "rm -rf static/css && mkdir -p static/css && rm -rf static/js && rm -rf static/*.html && mkdir -p static/js",
+    "clean": "rm -rf static/dimSum/css && mkdir -p static/dimSum/css && rm -rf static/dimSum/js && rm -rf static/dimSum/*.html && mkdir -p static/dimSum/js",
     "build": "npm run clean && npm run build-css && npm run build-js && npm run build-html",
     "watch": "npm run build && npm run watch-files & nodemon server -e js,jade",
     "start": "node server"

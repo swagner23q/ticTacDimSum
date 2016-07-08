@@ -19,9 +19,9 @@ var paths = {
   stylus:     'src/stylus',
   js:         'src/js',
   templates:  'src/templates',
-  buildHtml:  'static/',
-  buildJs:    'static/js',
-  buildCss:   'static/css',
+  buildHtml:  'static/dimSum',
+  buildJs:    'static/dimSum/js',
+  buildCss:   'static/dimSum/css',
   sourceMaps: 'source-maps/'
 };
 
