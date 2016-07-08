@@ -3,8 +3,9 @@ block vars
   - var bodyClass = 'index';
 
 block content
-  //- audio(controls='', loop='', autoplay='')
-  //-   source(src='/sfx/chineseRestaurant.mp3', type='audio/mp3')
+  #fb-root
+  audio(controls='', loop='', autoplay='')
+    source(src='/sfx/chineseRestaurant.mp3', type='audio/mp3')
   nav
     span(onclick='openNav()')
         img.hamburger(src='/gfx/vectors/hamburger.png')
@@ -22,38 +23,38 @@ block content
                     a(href='#', data-size='4') 4x4
                   p &nbsp;&nbsp;&nbsp;
                     a(href='#', data-size='5') 5x5
-      li.choose Choose Character
-        ul#chooseCharacter
-          li.toggleCharBox &nbsp;&nbsp;Player One
-            i.fa.fa-caret-down
-            #playerOne.charBox
-              a(href='#', data-charId='1')
-                img(src='/gfx/vectors/eggtart.png')
-              a(href='#', data-charId='2')
-                img(src='/gfx/vectors/bao.png')
-              a(href='#', data-charId='3')
-                img(src='/gfx/vectors/harGow.png')
-              a(href='#', data-charId='4')
-                img(src='/gfx/vectors/dumpling.png')
-              a(href='#', data-charId='5')
-                img(src='/gfx/vectors/shumai.png')
-              a(href='#', data-charId='6')
-                img(src='/gfx/vectors/sesame.png')
-          li.toggleCharBox &nbsp;&nbsp;Player Two
-            i.fa.fa-caret-down
-            #playerTwo.charBox
-              a(href='#', data-charId='1')
-                img(src='/gfx/vectors/eggtart.png')
-              a(href='#', data-charId='2')
-                img(src='/gfx/vectors/bao.png')
-              a(href='#', data-charId='3')
-                img(src='/gfx/vectors/harGow.png')
-              a(href='#', data-charId='4')
-                img(src='/gfx/vectors/dumpling.png')
-              a(href='#', data-charId='5')
-                img(src='/gfx/vectors/shumai.png')
-              a(href='#', data-charId='6')
-                img(src='/gfx/vectors/sesame.png')
+      //- li.choose Choose Character
+      //-   ul#chooseCharacter
+      //-     li.toggleCharBox &nbsp;&nbsp;Player One
+      //-       i.fa.fa-caret-down
+      //-       #playerOne.charBox
+      //-         a(href='#', data-charId='1')
+      //-           img(src='/gfx/vectors/eggtart.png')
+      //-         a(href='#', data-charId='2')
+      //-           img(src='/gfx/vectors/bao.png')
+      //-         a(href='#', data-charId='3')
+      //-           img(src='/gfx/vectors/harGow.png')
+      //-         a(href='#', data-charId='4')
+      //-           img(src='/gfx/vectors/dumpling.png')
+      //-         a(href='#', data-charId='5')
+      //-           img(src='/gfx/vectors/shumai.png')
+      //-         a(href='#', data-charId='6')
+      //-           img(src='/gfx/vectors/sesame.png')
+      //-     li.toggleCharBox &nbsp;&nbsp;Player Two
+      //-       i.fa.fa-caret-down
+      //-       #playerTwo.charBox
+      //-         a(href='#', data-charId='1')
+      //-           img(src='/gfx/vectors/eggtart.png')
+      //-         a(href='#', data-charId='2')
+      //-           img(src='/gfx/vectors/bao.png')
+      //-         a(href='#', data-charId='3')
+      //-           img(src='/gfx/vectors/harGow.png')
+      //-         a(href='#', data-charId='4')
+      //-           img(src='/gfx/vectors/dumpling.png')
+      //-         a(href='#', data-charId='5')
+      //-           img(src='/gfx/vectors/shumai.png')
+      //-         a(href='#', data-charId='6')
+      //-           img(src='/gfx/vectors/sesame.png')
           
       
   #mySidenav.sidenav
@@ -69,37 +70,37 @@ block content
       br
       a(href='#', data-size='5') 5x5
       br
-    ul#chooseCharacter2
-      li.toggleCharBox &nbsp;&nbsp;Player One
-        i.fa.fa-caret-down
-        #playerOne.charBox
-          a(href='#', data-charId='1')
-            img(src='/gfx/vectors/eggtart.png')
-          a(href='#', data-charId='2')
-            img(src='/gfx/vectors/bao.png')
-          a(href='#', data-charId='3')
-            img(src='/gfx/vectors/harGow.png')
-          a(href='#', data-charId='4')
-            img(src='/gfx/vectors/dumpling.png')
-          a(href='#', data-charId='5')
-            img(src='/gfx/vectors/shumai.png')
-          a(href='#', data-charId='6')
-            img(src='/gfx/vectors/sesame.png')
-      li.toggleCharBox &nbsp;&nbsp;Player Two
-        i.fa.fa-caret-down
-        #playerTwo.charBox
-          a(href='#', data-charId='1')
-            img(src='/gfx/vectors/eggtart.png')
-          a(href='#', data-charId='2')
-            img(src='/gfx/vectors/bao.png')
-          a(href='#', data-charId='3')
-            img(src='/gfx/vectors/harGow.png')
-          a(href='#', data-charId='4')
-            img(src='/gfx/vectors/dumpling.png')
-          a(href='#', data-charId='5')
-            img(src='/gfx/vectors/shumai.png')
-          a(href='#', data-charId='6')
-            img(src='/gfx/vectors/sesame.png')
+    //- ul#chooseCharacter2
+    //-   li.toggleCharBox &nbsp;&nbsp;Player One
+    //-     i.fa.fa-caret-down
+    //-     #playerOne.charBox
+    //-       a(href='#', data-charId='1')
+    //-         img(src='/gfx/vectors/eggtart.png')
+    //-       a(href='#', data-charId='2')
+    //-         img(src='/gfx/vectors/bao.png')
+    //-       a(href='#', data-charId='3')
+    //-         img(src='/gfx/vectors/harGow.png')
+    //-       a(href='#', data-charId='4')
+    //-         img(src='/gfx/vectors/dumpling.png')
+    //-       a(href='#', data-charId='5')
+    //-         img(src='/gfx/vectors/shumai.png')
+    //-       a(href='#', data-charId='6')
+    //-         img(src='/gfx/vectors/sesame.png')
+    //-   li.toggleCharBox &nbsp;&nbsp;Player Two
+    //-     i.fa.fa-caret-down
+    //-     #playerTwo.charBox
+    //-       a(href='#', data-charId='1')
+    //-         img(src='/gfx/vectors/eggtart.png')
+    //-       a(href='#', data-charId='2')
+    //-         img(src='/gfx/vectors/bao.png')
+    //-       a(href='#', data-charId='3')
+    //-         img(src='/gfx/vectors/harGow.png')
+    //-       a(href='#', data-charId='4')
+    //-         img(src='/gfx/vectors/dumpling.png')
+    //-       a(href='#', data-charId='5')
+    //-         img(src='/gfx/vectors/shumai.png')
+    //-       a(href='#', data-charId='6')
+    //-         img(src='/gfx/vectors/sesame.png')
         
 
   #gameBoard
@@ -123,7 +124,9 @@ block content
       p Draws: 
         span#draws
       button#restart restart
-      
+      //- p
+      //-   .fb-share-button(data-href='http://swagner23q.github.io/beyondBasics/', data-layout='icon', data-mobile-iframe='true')
+      //-   a.fb-xfbml-parse-ignore(target='_blank', href='https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fswagner23q.github.io%2FbeyondBasics%2F&src=sdkpreparse')
   #overlay
   #winPrompt
   
