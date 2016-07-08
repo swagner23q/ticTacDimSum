@@ -106,12 +106,12 @@ webPresenter.prototype.getCurrentPlayer = function () {
 webPresenter.prototype.changeCurrentPlayer = function () {
   if (this.currentPlayer === "X") {
     this.currentPlayer = "O";
-    $('#playerO').attr('src', '/gfx/vectors/floaterEtartTurn.png');
-    $('#playerX').attr('src', '/gfx/vectors/floaterHum.png');
+    $('#playerO').attr('src', '/gfx/vectors/playerCloudSelect.png');
+    $('#playerX').attr('src', '/gfx/vectors/player2Cloud.png');
   } else {
     this.currentPlayer = "X";
-    $('#playerX').attr('src', '/gfx/vectors/floaterBaoTurn.png');
-    $('#playerO').attr('src', '/gfx/vectors/floaterEtart.png');
+    $('#playerX').attr('src', '/gfx/vectors/player2CloudSelect.png');
+    $('#playerO').attr('src', '/gfx/vectors/playerCloud.png');
   }
 };
 
